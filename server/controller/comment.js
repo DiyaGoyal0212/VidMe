@@ -1,4 +1,4 @@
-import Comment from '../models/comment.js';
+import Comment from '../models/Comment.js';
 import Video from '../models/video.js';
 import { createError } from "../error.js";
 
