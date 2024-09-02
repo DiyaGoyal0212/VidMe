@@ -1,4 +1,4 @@
-import { createError } from "../error";
+import { createError } from "../error.js";
 
 export const addVideo = async (req,res,next) => {
     const newVideo = new Video({userId: req.user.id, ...req.body});
@@ -122,7 +122,7 @@ export const getByTag = async (req,res,next) => {
 export const search = async (req,res,next) => {
     const query = req.query.q
     try{
-        const videos = await Video.find({ title: {$regex: query, $option: "i"},}).limit(40);
+        const videos = await Video.find({ title: {$regex: query, $options: "i"},}).limit(40);
         res.status(200).json(videos);
     }
     catch(err){
